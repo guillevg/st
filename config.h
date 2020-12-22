@@ -121,8 +121,14 @@ static const char *colorname[] = {
 	[255] = 0,
 
 	/* more colors can be added after 255 to use with DefaultXX */
+//<<<<<<< ours
 	"#2e3440", /* background */
 	"#d8dee9", /* foreground */
+//=======
+	"#cccccc",
+	"#555555",
+	"black",
+//>>>>>>> theirs
 };
 
 
@@ -130,10 +136,18 @@ static const char *colorname[] = {
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
+/*<<<<<<< ours
 unsigned int defaultfg = 257;
 unsigned int defaultbg = 256;
 static unsigned int defaultcs = 257;
 static unsigned int defaultrcs = 256;
+=======
+*/
+unsigned int defaultfg = 7;
+unsigned int defaultbg = 258;
+static unsigned int defaultcs = 256;
+static unsigned int defaultrcs = 257;
+//>>>>>>> theirs
 
 /*
  * Default shape of cursor
@@ -194,22 +208,16 @@ static Shortcut shortcuts[] = {
 	{ ControlMask,          XK_Print,       toggleprinter,  {.i =  0} },
 	{ ShiftMask,            XK_Print,       printscreen,    {.i =  0} },
 	{ XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} },
-	{ TERMMOD,              XK_Prior,       zoom,           {.f = +1} },
-	{ TERMMOD,              XK_Next,        zoom,           {.f = -1} },
+	{ TERMMOD,              XK_K,           zoom,           {.f = +1} },
+	{ TERMMOD,              XK_J,           zoom,           {.f = -1} },
 	{ TERMMOD,              XK_Home,        zoomreset,      {.f =  0} },
 	{ TERMMOD,              XK_C,           clipcopy,       {.i =  0} },
 	{ TERMMOD,              XK_V,           clippaste,      {.i =  0} },
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
-	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
+	//{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
-	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
-	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
-    { MODKEY,               XK_k,           kscrollup,      {.i =  1} },
-    { MODKEY,               XK_j,           kscrolldown,    {.i =  1} },
-    { TERMMOD,              XK_Up,          zoom,           {.f = +1} },
-    { TERMMOD,              XK_Down,        zoom,           {.f = -1} },
-    { TERMMOD,              XK_K,           zoom,           {.f = +1} },   
-    { TERMMOD,              XK_J,           zoom,           {.f = -1} },
+	{ TERMMOD,              XK_k,           kscrollup,      {.i =  1} },
+	{ TERMMOD,              XK_j,           kscrolldown,    {.i =  1} },
 };
 
 /*
